@@ -1,0 +1,2283 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <title>Joel S Raphael | Full Stack Developer & Designer</title>
+    <!-- Meta Tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Portfolio of Joel S Raphael - Full Stack Developer, UI/UX Designer, and Digital Illustrator"
+    />
+    <meta
+      name="keywords"
+      content="web developer, full stack, UI/UX designer, illustrator, portfolio"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Animate CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <style>
+      :root {
+        --primary: #ff0000; /* Red */
+        --secondary: #000000; /* Black */
+        --dark: #000000; /* Black */
+        --light: #ffffff; /* White */
+        --accent: #ff0000; /* Red */
+      }
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        background-color: var(--dark); /* fallback if video fails */
+        color: var(--light);
+        overflow-x: hidden;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      #bg-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        min-height: 100vh;
+        object-fit: cover;
+        z-index: -1; /* Keep video behind content */
+        opacity: 0.2; /* Optional: dim the video */
+      }
+
+      .name-heading {
+        font-family: "Great Vibes", cursive;
+        background: linear-gradient(45deg, #ff0000, #ff4d4d, #ff9999);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+        line-height: 1.2;
+        display: inline-block;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .navbar {
+        backdrop-filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.8) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-link {
+        position: relative;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)),
+          url("images/hero-bg.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      .stats-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .stats-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .service-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .project-card {
+        overflow: hidden;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .project-card img {
+        transition: transform 0.5s ease;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.1);
+      }
+
+      .project-overlay {
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+        padding: 20px;
+        transition: bottom 0.3s ease;
+      }
+
+      .project-card:hover .project-overlay {
+        bottom: 0;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: transparent;
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      .btn-outline-primary {
+        color: var(--primary);
+        border-color: var(--primary);
+      }
+
+      .btn-outline-primary:hover {
+        background-color: var(--primary);
+        color: var(--dark);
+      }
+
+      .section-title {
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        bottom: -10px;
+        left: 0;
+        background: var(--primary);
+      }
+
+      .contact-section {
+        background: linear-gradient(135deg, var(--secondary), var(--dark));
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 0, 0, 0.1) 0%,
+          transparent 70%
+        );
+        animation: pulse 15s infinite linear;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .form-control {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+      }
+
+      .form-control:focus {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: var(--primary);
+        color: white;
+        box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.25);
+      }
+
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .social-icon:hover {
+        background: var(--primary);
+        transform: translateY(-5px);
+      }
+
+      .timeline {
+        position: relative;
+        padding-left: 50px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--primary);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 30px;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -38px;
+        top: 5px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--primary);
+        border: 3px solid var(--dark);
+      }
+
+      .tech-badge {
+        background: rgba(255, 0, 0, 0.2);
+        color: var(--primary);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        display: inline-block;
+      }
+
+      .floating-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .shape {
+        position: absolute;
+        opacity: 0.1;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+
+      @media (max-width: 768px) {
+        .name-heading {
+          font-size: 3rem !important;
+        }
+
+        .hero-content {
+          text-align: center;
+        }
+
+        .stats-card {
+          margin-bottom: 20px;
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .profile-pic-container {
+          width: 280px;
+          height: 280px;
+          margin-top: 40px;
+        }
+      }
+
+      .animated-name {
+        font-size: 4.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        color: #ffffff;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .name-part {
+        position: relative;
+        display: inline-block;
+      }
+
+      .name-part[data-text="JOEL"] {
+        color: #ff0000;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .name-part[data-text="S"] {
+        color: #ffffff;
+        font-weight: 400;
+        opacity: 0;
+        transform: scale(0.5);
+      }
+
+      .name-part[data-text="RAPHAEL"] {
+        color: white;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+
+      .name-part.animate-joel {
+        animation: slideUpFadeIn 0.8s ease-out forwards;
+      }
+
+      .name-part.animate-s {
+        animation: bounce 0.8s ease-out 0.3s forwards;
+      }
+
+      .name-part.animate-raphael {
+        animation: slideRightFadeIn 0.8s ease-out 0.5s forwards;
+      }
+
+      @keyframes slideUpFadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideRightFadeIn {
+        0% {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        25% {
+          transform: scale(1.2);
+        }
+        50% {
+          transform: scale(0.9);
+        }
+        75% {
+          transform: scale(1.1);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .animated-name {
+          font-size: 3rem;
+          flex-direction: column;
+          gap: 0;
+        }
+
+        .name-part {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Background Video -->
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+      "
+    >
+      <source src="images/background.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <!-- Floating Background Shapes -->
+    <div class="floating-shapes">
+      <div
+        class="shape shape-1"
+        style="
+          width: 300px;
+          height: 300px;
+          top: -100px;
+          left: -100px;
+          background: rgba(255, 0, 0, 0.1);
+        "
+      ></div>
+      <div
+        class="shape shape-2"
+        style="
+          width: 200px;
+          height: 200px;
+          bottom: 100px;
+          right: -50px;
+          background: rgba(255, 0, 0, 0.1);
+        "
+      ></div>
+      <div
+        class="shape shape-3"
+        style="
+          width: 150px;
+          height: 150px;
+          top: 30%;
+          left: 20%;
+          background: rgba(255, 0, 0, 0.1);
+        "
+      ></div>
+      <div
+        class="shape shape-4"
+        style="
+          width: 100px;
+          height: 100px;
+          bottom: 20%;
+          right: 15%;
+          background: rgba(255, 0, 0, 0.1);
+        "
+      ></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark fixed-top"
+      style="
+        background-color: rgba(0, 0, 0, 0.9);
+        border-bottom: 2px solid #000000;
+        overflow: hidden;
+      "
+      id="animatedNavbar"
+    >
+      <div class="container" style="position: relative">
+        <!-- Animated background element - contained within navbar -->
+        <div
+          class="nav-animation"
+          style="
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: calc(100% - 2px); /* Stops before the bottom border */
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(255, 50, 50, 0.4),
+              rgba(255, 0, 0, 0.6),
+              rgba(255, 50, 50, 0.4),
+              transparent
+            );
+            animation: splashAnimation 3s infinite;
+            z-index: 0;
+          "
+        ></div>
+
+        <a class="navbar-brand" href="#" style="position: relative; z-index: 1">
+          <img src="images/logo.png" alt="Joel S Raphael" height="50" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          style="
+            border-color: rgba(255, 0, 0, 0.7);
+            position: relative;
+            z-index: 1;
+          "
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse"
+          id="navbarNav"
+          style="position: relative; z-index: 1"
+        >
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home" style="color: white"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about" style="color: white">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services" style="color: white"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio" style="color: white"
+                >Portfolio</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience" style="color: white"
+                >Experience</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact" style="color: white"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <style>
+      @keyframes splashAnimation {
+        0% {
+          left: -100%;
+          opacity: 0.8;
+        }
+        70% {
+          opacity: 1;
+        }
+        100% {
+          left: 100%;
+          opacity: 0.8;
+        }
+      }
+
+      /* Navbar bottom line protection */
+      #animatedNavbar {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Optional: adds depth */
+      }
+
+      /* Navigation link styles */
+      .nav-link {
+        position: relative;
+        transition: all 0.3s ease;
+        padding: 5px 10px;
+        margin: 0 2px;
+      }
+
+      .nav-link:hover {
+        color: #ff3333 !important;
+        text-shadow: 0 0 8px rgba(255, 50, 50, 0.7);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #ff0000, transparent);
+        transition: width 0.4s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .nav-item.active .nav-link {
+        color: #ff5555 !important;
+      }
+    </style>
+    <!-- Hero Section -->
+    <!-- Add this style in your head section -->
+    <style>
+      /* Animation styles */
+      @keyframes slideInFromLeft {
+        0% {
+          transform: translateX(-100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInFromRight {
+        0% {
+          transform: translateX(100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* Initial state */
+      .hero-animate {
+        opacity: 0;
+      }
+
+      /* Animation classes */
+      .animate-left {
+        animation: slideInFromLeft 0.8s ease-out forwards;
+      }
+
+      .animate-right {
+        animation: slideInFromRight 0.8s ease-out forwards;
+      }
+
+      .animate-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+    </style>
+
+    <!-- Modified Hero Section -->
+    <section
+      id="home"
+      class="hero-section"
+      style="
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
+        padding: 2rem 0;
+      "
+    >
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Profile Image - Animate from right -->
+          <div
+            class="col-lg-6 order-1 order-lg-2 d-flex justify-content-center mb-4 mb-lg-0 hero-animate"
+            id="profile-animate"
+          >
+            <div
+              class="profile-pic-container position-relative"
+              style="width: 240px; height: 240px"
+            >
+              <!-- Solid Red Glowing Background -->
+              <div
+                style="
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 50%;
+                  background: radial-gradient(circle, red, darkred);
+                  box-shadow: 0 0 40px red, 0 0 80px red, 0 0 120px darkred;
+                  z-index: 1;
+                "
+              ></div>
+              <!-- Actual Profile Image -->
+              <img
+                src="images/profile-pic.jpg"
+                alt="Joel S Raphael"
+                class="profile-pic shadow-lg position-relative"
+                style="
+                  width: 100%;
+                  height: auto;
+                  border-radius: 50%;
+                  z-index: 2;
+                  position: relative;
+                "
+              />
+            </div>
+          </div>
+
+          <!-- Text Content - Animate from left -->
+          <div
+            class="col-lg-6 order-2 order-lg-1 text-center text-lg-start hero-animate"
+            id="text-animate"
+          >
+            <p
+              class="mb-3 hero-text-item"
+              style="
+                color: #ff0000;
+                font-weight: 600;
+                letter-spacing: 3px;
+                font-size: clamp(0.8rem, 2vw, 1rem);
+              "
+            >
+              WEB DEVELOPER / DESIGNER / ILLUSTRATOR
+            </p>
+
+            <!-- Animated Name Text -->
+            <div class="name-container mb-4">
+              <h1
+                class="animated-name"
+                style="
+                  font-family: 'Dancing Script', cursive;
+                  font-style: italic;
+                  font-weight: 700;
+                  font-size: clamp(2rem, 6vw, 4rem);
+                "
+              >
+                <span
+                  class="name-part hero-text-item"
+                  data-text="JOEL"
+                  style="color: #ff0000"
+                  >JOEL</span
+                >
+                <span
+                  class="name-part hero-text-item"
+                  data-text="S"
+                  style="color: #ffffff; font-size: 0.8em"
+                  >S</span
+                >
+                <span
+                  class="name-part hero-text-item"
+                  data-text="RAPHAEL"
+                  style="color: #ffffff"
+                  >RAPHAEL</span
+                >
+              </h1>
+            </div>
+
+            <p
+              class="lead mb-4 hero-text-item"
+              style="color: #ffffff; font-size: clamp(1rem, 2vw, 1.25rem)"
+            >
+              I build digital experiences that are beautiful, functional, and
+              user-focused.
+            </p>
+            <div
+              class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start"
+            >
+              <a
+                href="#portfolio"
+                class="btn btn-primary btn-lg px-4 py-2 hero-text-item"
+                style="
+                  background-color: #ff0000;
+                  border-color: #ff0000;
+                  min-width: 150px;
+                "
+              >
+                View My Work
+              </a>
+              <a
+                href="#contact"
+                class="btn btn-outline-primary btn-lg px-4 py-2 hero-text-item"
+                style="color: #ff0000; border-color: #ff0000; min-width: 150px"
+              >
+                Contact Me
+              </a>
+              <a
+                href="images/JOEL_RESUME.pdf"
+                download="Joel_S_Raphael_Resume.pdf"
+                class="btn btn-outline-secondary btn-lg px-4 py-2 hero-text-item"
+                style="color: #ffffff; border-color: #ffffff; min-width: 150px"
+              >
+                Download Resume
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animation Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get elements
+        const heroSection = document.querySelector(".hero-section");
+        const profileElement = document.getElementById("profile-animate");
+        const textElement = document.getElementById("text-animate");
+        const textItems = document.querySelectorAll(".hero-text-item");
+
+        // Create intersection observer
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // Animate profile from right
+                profileElement.classList.add("animate-right");
+
+                // Animate text container from left
+                textElement.classList.add("animate-left");
+
+                // Animate text items with alternating directions
+                textItems.forEach((item, index) => {
+                  setTimeout(() => {
+                    // Alternate between left and right animations
+                    if (index % 2 === 0) {
+                      item.style.animation =
+                        "slideInFromLeft 0.8s ease-out forwards";
+                    } else {
+                      item.style.animation =
+                        "slideInFromRight 0.8s ease-out forwards";
+                    }
+                    item.style.opacity = "1";
+                  }, 200 + index * 150); // Staggered delay
+                });
+
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        // Observe the hero section
+        observer.observe(heroSection);
+      });
+    </script>
+
+    <!-- Add this style in your head section -->
+    <style>
+      /* Animation styles for About section */
+      @keyframes slideInFromLeft {
+        0% {
+          transform: translateX(-100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInFromRight {
+        0% {
+          transform: translateX(100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* Initial state */
+      .about-animate {
+        opacity: 0;
+      }
+
+      /* Animation classes */
+      .about-animate-left {
+        animation: slideInFromLeft 0.8s ease-out forwards;
+      }
+
+      .about-animate-right {
+        animation: slideInFromRight 0.8s ease-out forwards;
+      }
+
+      .about-animate-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      /* Tech badge styling */
+      .tech-badge {
+        display: inline-block;
+        padding: 0.35rem 0.75rem;
+        margin: 0.25rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+      }
+
+      .tech-badge:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+      }
+    </style>
+
+    <!-- Modified About Section -->
+    <section
+      id="about"
+      class="py-5 about-section"
+      style="background-color: #000000"
+    >
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Image - Animate from left -->
+          <div
+            class="col-lg-5 mb-5 mb-lg-0 about-animate"
+            id="about-image-animate"
+          >
+            <img
+              src="images/about-image.jpg"
+              alt="About Joel"
+              class="img-fluid rounded-4 shadow"
+              style="border: 3px solid #ff0000"
+            />
+          </div>
+
+          <!-- Content - Animate from right -->
+          <div class="col-lg-7 about-animate" id="about-content-animate">
+            <h2
+              class="section-title mb-4 about-text-item"
+              style="color: #ffffff; border-bottom: 2px solid #ff0000"
+            >
+              About <span style="color: #ff0000">Me</span>
+            </h2>
+
+            <p class="lead about-text-item" style="color: #ffffff">
+              I'm a passionate full-stack developer and designer with expertise
+              in creating modern web applications and digital experiences.
+            </p>
+
+            <p class="about-text-item" style="color: #cccccc">
+              With 3+ years of coding experience, I've developed a strong
+              foundation in both frontend and backend technologies. My journey
+              in tech began with a Bachelor's in Computer Applications and has
+              evolved through hands-on project work.
+            </p>
+
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <ul class="list-unstyled">
+                  <li class="mb-2 about-text-item" style="color: #ffffff">
+                    <i class="fas fa-check me-2" style="color: #ff0000"></i>
+                    Full Stack Development
+                  </li>
+                  <li class="mb-2 about-text-item" style="color: #ffffff">
+                    <i class="fas fa-check me-2" style="color: #ff0000"></i>
+                    UI/UX Design
+                  </li>
+                  <li class="mb-2 about-text-item" style="color: #ffffff">
+                    <i class="fas fa-check me-2" style="color: #ff0000"></i>
+                    Digital Illustration
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-unstyled">
+                  <li class="mb-2 about-text-item" style="color: #ffffff">
+                    <i class="fas fa-check me-2" style="color: #ff0000"></i>
+                    Responsive Design
+                  </li>
+                  <li class="mb-2 about-text-item" style="color: #ffffff">
+                    <i class="fas fa-check me-2" style="color: #ff0000"></i>
+                    Database Management
+                  </li>
+                  <li class="mb-2 about-text-item" style="color: #ffffff">
+                    <i class="fas fa-check me-2" style="color: #ff0000"></i>
+                    API Integration
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <h5 class="mb-3 about-text-item" style="color: #ffffff">
+                Tech Stack
+              </h5>
+              <div>
+                <span class="tech-badge about-tech-item">HTML/CSS</span>
+                <span class="tech-badge about-tech-item">JavaScript</span>
+                <span class="tech-badge about-tech-item">Python</span>
+                <span class="tech-badge about-tech-item">PHP</span>
+                <span class="tech-badge about-tech-item">MySQL</span>
+                <span class="tech-badge about-tech-item">Bootstrap</span>
+                <span class="tech-badge about-tech-item">Django</span>
+                <span class="tech-badge about-tech-item">Figma</span>
+                <span class="tech-badge about-tech-item"
+                  >Adobe Creative Suite</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animation Script for About Section -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get about section elements
+        const aboutSection = document.querySelector(".about-section");
+        const aboutImage = document.getElementById("about-image-animate");
+        const aboutContent = document.getElementById("about-content-animate");
+        const aboutTextItems = document.querySelectorAll(".about-text-item");
+        const aboutTechItems = document.querySelectorAll(".about-tech-item");
+
+        // Create intersection observer for about section
+        const aboutObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // Animate image from left
+                aboutImage.classList.add("about-animate-left");
+
+                // Animate content from right
+                aboutContent.classList.add("about-animate-right");
+
+                // Animate text items with staggered timing
+                aboutTextItems.forEach((item, index) => {
+                  setTimeout(() => {
+                    item.style.opacity = "1";
+                    item.style.animation = "fadeInUp 0.6s ease-out forwards";
+                  }, 200 + index * 100);
+                });
+
+                // Animate tech badges with alternating directions
+                aboutTechItems.forEach((item, index) => {
+                  setTimeout(() => {
+                    item.style.opacity = "1";
+                    if (index % 2 === 0) {
+                      item.style.animation =
+                        "slideInFromLeft 0.6s ease-out forwards";
+                    } else {
+                      item.style.animation =
+                        "slideInFromRight 0.6s ease-out forwards";
+                    }
+                  }, 300 + index * 75);
+                });
+
+                aboutObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        // Observe the about section
+        aboutObserver.observe(aboutSection);
+      });
+    </script>
+
+    <!-- Add this style in your head section -->
+    <style>
+      /* Animation styles for Services section */
+      @keyframes fadeInUp {
+        0% {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInLeft {
+        0% {
+          transform: translateX(-50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInRight {
+        0% {
+          transform: translateX(50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      /* Initial state */
+      .service-animate {
+        opacity: 0;
+      }
+
+      /* Animation classes */
+      .service-animate-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      .service-animate-left {
+        animation: fadeInLeft 0.8s ease-out forwards;
+      }
+
+      .service-animate-right {
+        animation: fadeInRight 0.8s ease-out forwards;
+      }
+
+      /* Service card hover effect */
+      .service-card {
+        transition: all 0.3s ease;
+        transform: translateY(0);
+        border: 1px solid rgba(255, 0, 0, 0.1);
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+        border-color: rgba(255, 0, 0, 0.3);
+      }
+    </style>
+
+    <!-- Modified Services Section -->
+    <section id="services" class="py-5 bg-black services-section">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2
+            class="section-title text-white service-animate"
+            id="services-title"
+          >
+            My <span class="text-danger">Services</span>
+          </h2>
+          <p class="lead text-white service-animate" id="services-subtitle">
+            What I can do for you
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- First service card - animate from left -->
+          <div class="col-md-4">
+            <div
+              class="service-card p-4 h-100 bg-white service-animate"
+              id="service-card-1"
+            >
+              <div class="icon mb-4 text-danger">
+                <i class="fas fa-laptop-code fa-3x"></i>
+              </div>
+              <h4 class="text-black">Web Development</h4>
+              <p class="text-black">
+                Custom web applications built with modern technologies for
+                optimal performance and user experience.
+              </p>
+              <ul class="list-unstyled">
+                <li class="text-black service-item">
+                  <i class="fas fa-check text-danger me-2"></i> Full Stack
+                  Solutions
+                </li>
+                <li class="text-black service-item">
+                  <i class="fas fa-check text-danger me-2"></i> Responsive
+                  Design
+                </li>
+                <li class="text-black service-item">
+                  <i class="fas fa-check text-danger me-2"></i> API Integration
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Second service card - animate from bottom -->
+          <div class="col-md-4">
+            <div
+              class="service-card p-4 h-100 bg-white service-animate"
+              id="service-card-2"
+            >
+              <div class="icon mb-4 text-danger">
+                <i class="fas fa-paint-brush fa-3x"></i>
+              </div>
+              <h4 class="text-black">UI/UX Design</h4>
+              <p class="text-black">
+                Beautiful, intuitive interfaces designed to enhance user
+                engagement and satisfaction.
+              </p>
+              <ul class="list-unstyled">
+                <li class="text-black service-item">
+                  <i class="fas fa-check text-danger me-2"></i> Wireframing
+                </li>
+                <li class="text-black service-item">
+                  <i class="fas fa-check text-danger me-2"></i> Prototyping
+                </li>
+                <li class="text-black service-item">
+                  <i class="fas fa-check text-danger me-2"></i> User Testing
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Third service card - animate from right -->
+          <div class="col-md-4">
+            <div
+              class="service-card p-4 h-100 bg-white service-animate"
+              id="service-card-3"
+            >
+              <div class="icon mb-4 text-danger">
+                <i class="fas fa-pencil-ruler fa-3x"></i>
+              </div>
+              <h4 class="text-black">Digital Illustration</h4>
+              <p class="text-black">
+                Custom illustrations and graphics tailored to your brand's
+                identity and messaging.
+              </p>
+              <ul class="list-unstyled">
+                <li class="text-black service-item">
+                  <i class="fas fa-check text-danger me-2"></i> Concept Art
+                </li>
+                <li class="text-black service-item">
+                  <i class="fas fa-check text-danger me-2"></i> Character Design
+                </li>
+                <li class="text-black service-item">
+                  <i class="fas fa-check text-danger me-2"></i> Brand Assets
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animation Script for Services Section -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get services section elements
+        const servicesSection = document.querySelector(".services-section");
+        const servicesTitle = document.getElementById("services-title");
+        const servicesSubtitle = document.getElementById("services-subtitle");
+        const serviceCards = [
+          document.getElementById("service-card-1"),
+          document.getElementById("service-card-2"),
+          document.getElementById("service-card-3"),
+        ];
+        const serviceItems = document.querySelectorAll(".service-item");
+
+        // Create intersection observer for services section
+        const servicesObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // Animate title and subtitle
+                servicesTitle.classList.add("service-animate-up");
+                servicesSubtitle.classList.add("service-animate-up");
+
+                // Animate service cards with different directions
+                setTimeout(() => {
+                  serviceCards[0].classList.add("service-animate-left");
+                }, 200);
+
+                setTimeout(() => {
+                  serviceCards[1].classList.add("service-animate-up");
+                }, 400);
+
+                setTimeout(() => {
+                  serviceCards[2].classList.add("service-animate-right");
+                }, 300);
+
+                // Animate service items with staggered timing
+                serviceItems.forEach((item, index) => {
+                  setTimeout(() => {
+                    item.style.opacity = "1";
+                    item.style.animation = "fadeInUp 0.6s ease-out forwards";
+                  }, 500 + index * 100);
+                });
+
+                servicesObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        // Observe the services section
+        servicesObserver.observe(servicesSection);
+      });
+    </script>
+
+    <!-- Portfolio Section -->
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-5 bg-black">
+      <style>
+        /* Animation CSS */
+        #portfolio .section-title,
+        #portfolio .lead,
+        #portfolio .project-card,
+        #portfolio .btn-outline-danger {
+          opacity: 0;
+          transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* Title animation */
+        #portfolio .section-title {
+          transform: translateY(30px);
+        }
+
+        /* Subtitle animation */
+        #portfolio .lead {
+          transform: translateY(30px);
+          transition-delay: 0.1s;
+        }
+
+        /* Project cards animation */
+        #portfolio .project-card {
+          transform: translateY(50px);
+        }
+
+        /* Button animation */
+        #portfolio .btn-outline-danger {
+          transform: translateY(30px);
+        }
+
+        /* Animated state */
+        #portfolio.animated .section-title,
+        #portfolio.animated .lead,
+        #portfolio.animated .project-card,
+        #portfolio.animated .btn-outline-danger {
+          opacity: 1;
+          transform: translate(0) !important;
+        }
+
+        /* Staggered animations for project cards */
+        #portfolio.animated .col-lg-4:nth-child(1) .project-card {
+          transition-delay: 0.2s;
+        }
+        #portfolio.animated .col-lg-4:nth-child(2) .project-card {
+          transition-delay: 0.4s;
+        }
+        #portfolio.animated .col-lg-4:nth-child(3) .project-card {
+          transition-delay: 0.6s;
+        }
+        #portfolio.animated .btn-outline-danger {
+          transition-delay: 0.8s;
+        }
+      </style>
+
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title text-white">
+            Featured <span class="text-danger">Projects</span>
+          </h2>
+          <p class="lead text-white">A selection of my recent work</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- FLIXGO -->
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card">
+              <img
+                src="images/project-flixgo.jpg"
+                alt="FLIXGO Movie Website"
+                class="img-fluid"
+              />
+              <div class="project-overlay bg-danger">
+                <h4 class="text-white">FLIXGO Movie Website</h4>
+                <p class="text-white">
+                  Movie info site with trending, top-rated, and upcoming movie
+                  sections.
+                </p>
+                <a
+                  href="https://jamesbond007.pythonanywhere.com/index/"
+                  target="_blank"
+                  class="btn btn-sm btn-dark"
+                  >View Project</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Papersmash -->
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card">
+              <img
+                src="images/project-papersmash.jpg"
+                alt="Papersmash Platform"
+                class="img-fluid"
+              />
+              <div class="project-overlay bg-danger">
+                <h4 class="text-white">Papersmash Platform</h4>
+                <p class="text-white">
+                  A community for writers built using PHP & MySQL.
+                </p>
+                <a href="#" class="btn btn-sm btn-dark">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Women Safety -->
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card">
+              <img
+                src="images/project-safety.jpg"
+                alt="Deltro Comptracker Hub"
+                class="img-fluid"
+              />
+              <div class="project-overlay bg-danger">
+                <h4 class="text-white">Deltro Comptracker Hub</h4>
+                <p class="text-white">
+                  Women safety platform with legal and wellness resources.
+                </p>
+                <a
+                  href="https://jafar6425.pythonanywhere.com"
+                  target="_blank"
+                  class="btn btn-sm btn-dark"
+                  >View Project</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-5">
+          <a
+            href="#"
+            class="btn btn-outline-danger btn-lg text-white border-white"
+            >View All Projects</a
+          >
+        </div>
+      </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const portfolioSection = document.getElementById("portfolio");
+
+          function animateOnScroll() {
+            const sectionTop = portfolioSection.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (sectionTop < windowHeight * 0.75) {
+              portfolioSection.classList.add("animated");
+
+              // Remove event listener after animation
+              window.removeEventListener("scroll", animateOnScroll);
+            }
+          }
+
+          // Initial check in case section is already visible
+          animateOnScroll();
+
+          // Check on scroll
+          window.addEventListener("scroll", animateOnScroll);
+        });
+      </script>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-5 bg-black">
+      <style>
+        /* Experience Section Animations */
+        #experience .section-title,
+        #experience .lead,
+        #experience h3,
+        #experience .timeline-item {
+          opacity: 0;
+          transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* Title animation */
+        #experience .section-title {
+          transform: translateY(30px);
+        }
+
+        /* Subtitle animation */
+        #experience .lead {
+          transform: translateY(30px);
+          transition-delay: 0.1s;
+        }
+
+        /* Education/Projects headers */
+        #experience h3 {
+          transform: translateY(20px);
+          transition-delay: 0.2s;
+        }
+
+        /* Timeline items */
+        #experience .timeline-item {
+          transform: translateX(-50px);
+        }
+
+        /* Right column items */
+        #experience .col-lg-6:last-child .timeline-item {
+          transform: translateX(50px);
+        }
+
+        /* Animated state */
+        #experience.animated .section-title,
+        #experience.animated .lead,
+        #experience.animated h3,
+        #experience.animated .timeline-item {
+          opacity: 1;
+          transform: translate(0) !important;
+        }
+
+        /* Staggered animations for timeline items */
+        #experience.animated .timeline-item:nth-child(1) {
+          transition-delay: 0.3s;
+        }
+        #experience.animated .timeline-item:nth-child(2) {
+          transition-delay: 0.5s;
+        }
+        #experience.animated .timeline-item:nth-child(3) {
+          transition-delay: 0.7s;
+        }
+
+        /* Testimonials Section Animations */
+        .testimonialSwiper .swiper-slide {
+          opacity: 0;
+          transform: translateY(50px);
+          transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .testimonialSwiper.animated .swiper-slide {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        /* Stagger testimonials */
+        .testimonialSwiper.animated .swiper-slide:nth-child(1) {
+          transition-delay: 0.2s;
+        }
+        .testimonialSwiper.animated .swiper-slide:nth-child(2) {
+          transition-delay: 0.4s;
+        }
+        .testimonialSwiper.animated .swiper-slide:nth-child(3) {
+          transition-delay: 0.6s;
+        }
+      </style>
+
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title text-white">
+            My <span class="text-danger">Journey</span>
+          </h2>
+          <p class="lead text-white">Education and professional experience</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <h3 class="mb-4 text-danger">
+              <i class="fas fa-graduation-cap me-2"></i> Education
+            </h3>
+            <div class="timeline">
+              <div class="timeline-item bg-dark text-white p-4 mb-3 rounded">
+                <h5 class="text-danger">Bachelor of Computer Application</h5>
+                <p class="text-white-50">Kristu Jyoti College (2021-2024)</p>
+                <p>
+                  Specialized in full stack web development and database
+                  management.
+                </p>
+              </div>
+              <div class="timeline-item bg-dark text-white p-4 mb-3 rounded">
+                <h5 class="text-danger">Higher Secondary Education (+2)</h5>
+                <p class="text-white-50">NSS HSS Adoor (2020-2021)</p>
+              </div>
+              <div class="timeline-item bg-dark text-white p-4 rounded">
+                <h5 class="text-danger">Secondary Education (10th)</h5>
+                <p class="text-white-50">All Saints Adoor (2018-2019)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <h3 class="mb-4 text-danger">
+              <i class="fas fa-briefcase me-2"></i> Projects
+            </h3>
+            <div class="timeline">
+              <div class="timeline-item bg-dark text-white p-4 mb-3 rounded">
+                <h5 class="text-danger">FLIXGO Movie Website</h5>
+                <p class="text-white-50">2023</p>
+                <p>
+                  Developed a movie information platform similar to IMDb with
+                  multiple sections and filtering options.
+                </p>
+              </div>
+              <div class="timeline-item bg-dark text-white p-4 mb-3 rounded">
+                <h5 class="text-danger">Papersmash Platform</h5>
+                <p class="text-white-50">2023</p>
+                <p>
+                  Created a community platform for writers with publishing and
+                  monetization features.
+                </p>
+              </div>
+              <div class="timeline-item bg-dark text-white p-4 rounded">
+                <h5 class="text-danger">Deltro Comptracker Hub</h5>
+                <p class="text-white-50">2024</p>
+                <p>
+                  Built a comprehensive women's safety platform with legal
+                  resources and wellness information.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          // Experience section animation
+          const experienceSection = document.getElementById("experience");
+
+          function animateExperience() {
+            const sectionTop = experienceSection.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (sectionTop < windowHeight * 0.75) {
+              experienceSection.classList.add("animated");
+              window.removeEventListener("scroll", animateExperience);
+            }
+          }
+
+          animateExperience();
+          window.addEventListener("scroll", animateExperience);
+
+          // Testimonials animation
+          const testimonialSection =
+            document.querySelector(".testimonialSwiper").parentElement
+              .parentElement;
+          const testimonialSwiper =
+            document.querySelector(".testimonialSwiper");
+
+          function animateTestimonials() {
+            const sectionTop = testimonialSection.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (sectionTop < windowHeight * 0.75) {
+              testimonialSwiper.classList.add("animated");
+              window.removeEventListener("scroll", animateTestimonials);
+            }
+          }
+
+          animateTestimonials();
+          window.addEventListener("scroll", animateTestimonials);
+        });
+      </script>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-black">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title text-white">
+            Client <span class="text-danger">Testimonials</span>
+          </h2>
+          <p class="lead text-white">What people say about my work</p>
+        </div>
+
+        <div class="swiper testimonialSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-card p-4 bg-dark text-white">
+                <div class="mb-3">
+                  <i class="fas fa-quote-left text-danger fa-2x"></i>
+                </div>
+                <p class="mb-4">
+                  "Joel delivered an exceptional website that perfectly captured
+                  our vision. His attention to detail and technical expertise
+                  were impressive."
+                </p>
+                <div class="d-flex align-items-center">
+                  <img
+                    src="images/client1.jpg"
+                    alt="Client"
+                    class="rounded-circle me-3"
+                    width="60"
+                  />
+                  <div>
+                    <h6 class="mb-0 text-danger">Sarah Johnson</h6>
+                    <small class="text-white-50">CEO, TechSolutions</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card p-4 bg-dark text-white">
+                <div class="mb-3">
+                  <i class="fas fa-quote-left text-danger fa-2x"></i>
+                </div>
+                <p class="mb-4">
+                  "The illustrations Joel created for our brand were exactly
+                  what we needed. He understood our aesthetic perfectly and
+                  delivered beyond expectations."
+                </p>
+                <div class="d-flex align-items-center">
+                  <img
+                    src="images/client2.jpg"
+                    alt="Client"
+                    class="rounded-circle me-3"
+                    width="60"
+                  />
+                  <div>
+                    <h6 class="mb-0 text-danger">Michael Chen</h6>
+                    <small class="text-white-50"
+                      >Creative Director, DesignHub</small
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card p-4 bg-dark text-white">
+                <div class="mb-3">
+                  <i class="fas fa-quote-left text-danger fa-2x"></i>
+                </div>
+                <p class="mb-4">
+                  "Working with Joel on our web application was a pleasure. His
+                  problem-solving skills and clean code made the development
+                  process smooth."
+                </p>
+                <div class="d-flex align-items-center">
+                  <img
+                    src="images/client3.jpg"
+                    alt="Client"
+                    class="rounded-circle me-3"
+                    width="60"
+                  />
+                  <div>
+                    <h6 class="mb-0 text-danger">David Wilson</h6>
+                    <small class="text-white-50">CTO, AppVenture</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5 bg-black text-white">
+      <style>
+        /* Contact Section Animations */
+        #contact .section-title,
+        #contact .lead,
+        #contact form,
+        #contact h5,
+        #contact .social-icon,
+        footer,
+        #backToTop {
+          opacity: 0;
+          transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* Title animation */
+        #contact .section-title {
+          transform: translateY(30px);
+        }
+
+        /* Subtitle animation */
+        #contact .lead {
+          transform: translateY(30px);
+          transition-delay: 0.1s;
+        }
+
+        /* Form animation */
+        #contact form {
+          transform: translateY(50px);
+          transition-delay: 0.2s;
+        }
+
+        /* Connect header */
+        #contact h5 {
+          transform: translateY(30px);
+          transition-delay: 0.3s;
+        }
+
+        /* Social icons */
+        #contact .social-icon {
+          transform: scale(0.8);
+        }
+        #contact .social-icon:nth-child(1) {
+          transition-delay: 0.4s;
+        }
+        #contact .social-icon:nth-child(2) {
+          transition-delay: 0.45s;
+        }
+        #contact .social-icon:nth-child(3) {
+          transition-delay: 0.5s;
+        }
+        #contact .social-icon:nth-child(4) {
+          transition-delay: 0.55s;
+        }
+        #contact .social-icon:nth-child(5) {
+          transition-delay: 0.6s;
+        }
+
+        /* Footer animation */
+        footer {
+          transform: translateY(50px);
+        }
+
+        /* Back to top button */
+        #backToTop {
+          transform: translateY(100px);
+        }
+
+        /* Animated state */
+        #contact.animated .section-title,
+        #contact.animated .lead,
+        #contact.animated form,
+        #contact.animated h5,
+        #contact.animated .social-icon,
+        #contact.animated footer,
+        #contact.animated #backToTop {
+          opacity: 1;
+          transform: translate(0) scale(1) !important;
+        }
+      </style>
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center mb-5">
+            <h2 class="section-title">
+              Get In <span class="text-danger">Touch</span>
+            </h2>
+            <p class="lead">
+              Have a project in mind or want to discuss potential opportunities?
+              I'd love to hear from you.
+            </p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <form
+              action="https://formsubmit.co/joelraphael6425@gmail.com"
+              method="POST"
+              class="row g-3"
+            >
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  class="form-control form-control-lg bg-dark text-white border-danger"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="email"
+                  class="form-control form-control-lg bg-dark text-white border-danger"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="col-12">
+                <input
+                  type="text"
+                  class="form-control form-control-lg bg-dark text-white border-danger"
+                  name="subject"
+                  placeholder="Subject"
+                />
+              </div>
+              <div class="col-12">
+                <textarea
+                  class="form-control form-control-lg bg-dark text-white border-danger"
+                  name="message"
+                  rows="5"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-danger btn-lg px-5">
+                  Send Message
+                </button>
+              </div>
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value="thankyou.html" />
+            </form>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-12 text-center">
+            <h5 class="mb-4">Connect With Me</h5>
+            <div class="d-flex justify-content-center gap-3">
+              <a
+                href="https://github.com/24mp2301"
+                target="_blank"
+                class="social-icon text-danger"
+              >
+                <i class="fab fa-github fa-lg"></i>
+              </a>
+              <a href="#" class="social-icon text-danger">
+                <i class="fab fa-linkedin-in fa-lg"></i>
+              </a>
+              <a href="#" class="social-icon text-danger">
+                <i class="fab fa-twitter fa-lg"></i>
+              </a>
+              <a href="#" class="social-icon text-danger">
+                <i class="fab fa-instagram fa-lg"></i>
+              </a>
+              <a href="#" class="social-icon text-danger">
+                <i class="fab fa-behance fa-lg"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="py-4 bg-dark text-white">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="mb-0">© 2024 Joel S Raphael. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <a href="#" class="text-decoration-none text-danger me-3"
+                >Privacy Policy</a
+              >
+              <a href="#" class="text-decoration-none text-danger"
+                >Terms of Service</a
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Back to Top Button -->
+      <a
+        href="#"
+        class="back-to-top btn btn-danger rounded-circle p-3 position-fixed"
+        id="backToTop"
+        style="
+          bottom: 30px;
+          right: 30px;
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+          border: none;
+        "
+      >
+        <i class="fas fa-arrow-up" style="font-size: 1.2rem"></i>
+      </a>
+
+      <style>
+        #backToTop:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 6px 16px rgba(255, 1, 26, 0.933);
+          background-color: #b40012 !important;
+        }
+
+        #backToTop:active {
+          transform: translateY(1px);
+        }
+
+        #backToTop.show {
+          opacity: 1;
+          visibility: visible;
+        }
+      </style>
+
+      <script>
+        // Back to top button functionality
+        window.addEventListener("scroll", function () {
+          const backToTop = document.getElementById("backToTop");
+          if (window.pageYOffset > 300) {
+            backToTop.classList.add("show");
+          } else {
+            backToTop.classList.remove("show");
+          }
+        });
+
+        document
+          .getElementById("backToTop")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          });
+      </script>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const contactSection = document.getElementById("contact");
+
+          function animateContact() {
+            const sectionTop = contactSection.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (sectionTop < windowHeight * 0.75) {
+              contactSection.classList.add("animated");
+
+              // Show back-to-top button when scrolling down
+              window.addEventListener("scroll", toggleBackToTop);
+              toggleBackToTop();
+
+              // Remove event listener after animation
+              window.removeEventListener("scroll", animateContact);
+            }
+          }
+
+          function toggleBackToTop() {
+            const backToTop = document.getElementById("backToTop");
+            if (window.pageYOffset > 300) {
+              backToTop.style.opacity = "1";
+              backToTop.style.visibility = "visible";
+            } else {
+              backToTop.style.opacity = "0";
+              backToTop.style.visibility = "hidden";
+            }
+          }
+
+          // Back to top functionality
+          document
+            .getElementById("backToTop")
+            .addEventListener("click", function (e) {
+              e.preventDefault();
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            });
+
+          // Initial check in case section is already visible
+          animateContact();
+          window.addEventListener("scroll", animateContact);
+        });
+      </script>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Isotope JS -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+      // Initialize Swiper
+      const testimonialSwiper = new Swiper(".testimonialSwiper", {
+        loop: true,
+        autoplay: {
+          delay: 5000,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        },
+      });
+
+      // Back to top button
+      const backToTop = document.getElementById("backToTop");
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "block";
+        } else {
+          backToTop.style.display = "none";
+        }
+      });
+
+      backToTop.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Animate elements when they come into view
+      const animateOnScroll = () => {
+        const elements = document.querySelectorAll(".animate-on-scroll");
+
+        elements.forEach((element) => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+
+          if (elementPosition < windowHeight - 100) {
+            element.classList.add("animate__animated", "animate__fadeInUp");
+          }
+        });
+      };
+
+      window.addEventListener("scroll", animateOnScroll);
+      window.addEventListener("load", animateOnScroll);
+
+      // Initialize floating shapes animation
+      const shapes = document.querySelectorAll(".shape");
+      shapes.forEach((shape, index) => {
+        // Random animation properties
+        const duration = 15 + Math.random() * 15;
+        const delay = Math.random() * 5;
+        const direction = Math.random() > 0.5 ? "normal" : "reverse";
+
+        shape.style.animation = `float ${duration}s ease-in-out ${delay}s infinite ${direction}`;
+      });
+    </script>
+  </body>
+</html>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const nameParts = document.querySelectorAll(".name-part");
+    let animationInterval;
+
+    function animateName() {
+      // Reset all animations
+      nameParts.forEach((part) => {
+        part.classList.remove("animate-joel", "animate-s", "animate-raphael");
+        part.style.opacity = "0";
+
+        if (part.dataset.text === "JOEL") {
+          part.style.transform = "translateY(30px)";
+        } else if (part.dataset.text === "S") {
+          part.style.transform = "scale(0.5)";
+        } else if (part.dataset.text === "RAPHAEL") {
+          part.style.transform = "translateX(-30px)";
+        }
+      });
+
+      // Trigger animations with delays
+      setTimeout(() => {
+        document
+          .querySelector('[data-text="JOEL"]')
+          .classList.add("animate-joel");
+      }, 100);
+
+      setTimeout(() => {
+        document.querySelector('[data-text="S"]').classList.add("animate-s");
+      }, 400);
+
+      setTimeout(() => {
+        document
+          .querySelector('[data-text="RAPHAEL"]')
+          .classList.add("animate-raphael");
+      }, 700);
+    }
+
+    // Initial animation
+    animateName();
+
+    // Set up repeating animation (every 4 seconds)
+    animationInterval = setInterval(animateName, 4000);
+
+    // Clean up on page navigation
+    window.addEventListener("beforeunload", function () {
+      clearInterval(animationInterval);
+    });
+  });
+</script>
