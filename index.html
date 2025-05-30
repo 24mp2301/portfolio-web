@@ -67,22 +67,13 @@
 
       body {
         font-family: "Space Grotesk", sans-serif;
-        background-color: var(--dark); /* fallback if video fails */
-        color: var(--light);
-        overflow-x: hidden;
-        min-height: 100vh;
-        position: relative;
-      }
 
-      #bg-video {
-        position: fixed;
-        top: 0;
-        left: 0;
-        min-width: 100vw;
         min-height: 100vh;
-        object-fit: cover;
-        z-index: -1; /* Keep video behind content */
-        opacity: 0.2; /* Optional: dim the video */
+
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
       }
 
       .name-heading {
@@ -484,25 +475,17 @@
   </head>
 
   <body>
-    <!-- Background Video -->
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
+    <div
       style="
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
-        object-fit: cover;
         z-index: -1;
+        background: url('images/background.gif') center/cover no-repeat;
       "
-    >
-      <source src="images/background.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    ></div>
     <!-- Floating Background Shapes -->
     <div class="floating-shapes">
       <div
@@ -1018,7 +1001,7 @@
             id="about-image-animate"
           >
             <img
-              src="images/about-image.jpg"
+              src="images/section-banner.png"
               alt="About Joel"
               class="img-fluid rounded-4 shadow"
               style="border: 3px solid #ff0000"
