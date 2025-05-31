@@ -481,27 +481,21 @@
   </head>
 
   <body>
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
+    <div
       style="
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
-        object-fit: cover;
+        background-image: url('images/backwall.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         z-index: -1;
       "
-    >
-      <source src="images/background.mp4" type="video/mp4" />
-      <!-- Add WebM version for better compression -->
-      <source src="images/background.webm" type="video/webm" />
-      Your browser does not support the video tag.
-    </video>
+    ></div>
+
     <!-- Floating Background Shapes -->
     <div class="floating-shapes">
       <div
@@ -752,9 +746,35 @@
       style="
         background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
         padding: 2rem 0;
+        position: relative;
+        overflow: hidden;
       "
     >
-      <div class="container">
+      <!-- Animated Background Element -->
+      <div
+        class="animated-red-black-bg"
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            45deg,
+            #000000,
+            #ff0000,
+            #000000,
+            #ff0000,
+            #000000
+          );
+          background-size: 400% 400%;
+          animation: gradientFlow 8s ease infinite;
+          opacity: 0.2;
+          z-index: 0;
+        "
+      ></div>
+
+      <div class="container" style="position: relative; z-index: 1">
         <div class="row align-items-center">
           <!-- Profile Image - Animate from right -->
           <div
@@ -765,31 +785,18 @@
               class="profile-pic-container position-relative"
               style="width: 240px; height: 240px"
             >
-              <!-- Solid Red Glowing Background -->
-              <div
-                style="
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  border-radius: 50%;
-                  background: radial-gradient(circle, red, darkred);
-                  box-shadow: 0 0 40px red, 0 0 80px red, 0 0 120px darkred;
-                  z-index: 1;
-                "
-              ></div>
-              <!-- Actual Profile Image -->
+              <!-- Profile Image with Subtle Shadow -->
               <img
                 src="images/profile-pic.jpg"
                 alt="Joel S Raphael"
-                class="profile-pic shadow-lg position-relative"
+                class="profile-pic shadow-lg"
                 style="
                   width: 100%;
                   height: auto;
                   border-radius: 50%;
-                  z-index: 2;
                   position: relative;
+                  z-index: 2;
+                  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
                 "
               />
             </div>
@@ -935,7 +942,7 @@
 
     <!-- Add this style in your head section -->
     <style>
-      /* Animation styles for About section */
+      /* Animation styles */
       @keyframes slideInFromLeft {
         0% {
           transform: translateX(-100px);
@@ -969,37 +976,39 @@
         }
       }
 
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
       /* Initial state */
-      .about-animate {
+      .hero-animate {
         opacity: 0;
       }
 
       /* Animation classes */
-      .about-animate-left {
+      .animate-left {
         animation: slideInFromLeft 0.8s ease-out forwards;
       }
 
-      .about-animate-right {
+      .animate-right {
         animation: slideInFromRight 0.8s ease-out forwards;
       }
 
-      .about-animate-up {
+      .animate-up {
         animation: fadeInUp 0.8s ease-out forwards;
       }
 
-      /* Tech badge styling */
-      .tech-badge {
-        display: inline-block;
-        padding: 0.35rem 0.75rem;
-        margin: 0.25rem;
-        border-radius: 50px;
-        font-size: 0.85rem;
-        transition: all 0.3s ease;
-      }
-
-      .tech-badge:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+      /* Profile image styling */
+      .profile-pic-container {
+        overflow: hidden;
       }
     </style>
 
