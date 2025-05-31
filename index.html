@@ -852,6 +852,15 @@
             </div>
           </div>
 
+          <!-- Hidden Audio Element -->
+          <audio id="siren-audio" loop>
+            <source
+              src="audio/emotionalguitar-337834.mp3"
+              type="audio/mpeg"
+            />
+            Your browser does not support the audio element.
+          </audio>
+
           <style>
             /* Rotating Police Siren Border Animation */
             @keyframes rotateBorder {
@@ -895,27 +904,39 @@
           </style>
 
           <script>
-            document
-              .getElementById("profile-image")
-              .addEventListener("click", function () {
-                const border = document.querySelector(
-                  ".profile-border-animation"
-                );
-                const image = this;
+            // Get elements
+            const profileImage = document.getElementById("profile-image");
+            const borderAnimation = document.querySelector(
+              ".profile-border-animation"
+            );
+            const sirenAudio = document.getElementById("siren-audio");
 
-                // Toggle animations
-                border.classList.toggle("active-border");
-                image.classList.toggle("active-image");
+            // Click event handler
+            profileImage.addEventListener("click", function () {
+              // Toggle animations
+              borderAnimation.classList.toggle("active-border");
+              profileImage.classList.toggle("active-image");
 
-                // Optional: Add police siren sound effect
-                // if (image.classList.contains('active-image')) {
-                //   const siren = new Audio('siren.mp3');
-                //   siren.loop = true;
-                //   siren.play();
-                // } else {
-                //   document.querySelectorAll('audio').forEach(a => a.pause());
-                // }
-              });
+              // Handle audio
+              if (profileImage.classList.contains("active-image")) {
+                // Start playing from beginning if already playing
+                sirenAudio.currentTime = 0;
+                sirenAudio
+                  .play()
+                  .catch((e) => console.log("Audio play failed:", e));
+              } else {
+                sirenAudio.pause();
+              }
+            });
+
+            // Pause audio when clicking anywhere else
+            document.addEventListener("click", function (e) {
+              if (!profileImage.contains(e.target)) {
+                borderAnimation.classList.remove("active-border");
+                profileImage.classList.remove("active-image");
+                sirenAudio.pause();
+              }
+            });
           </script>
 
           <!-- Text Content - Animate from left -->
