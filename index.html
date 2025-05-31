@@ -74,6 +74,12 @@
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
+        overflow-x: hidden;
+      }
+      .container {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
       }
 
       .name-heading {
@@ -475,6 +481,27 @@
   </head>
 
   <body>
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+      "
+    >
+      <source src="images/background.mp4" type="video/mp4" />
+      <!-- Add WebM version for better compression -->
+      <source src="images/background.webm" type="video/webm" />
+      Your browser does not support the video tag.
+    </video>
     <!-- Floating Background Shapes -->
     <div class="floating-shapes">
       <div
