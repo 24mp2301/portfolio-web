@@ -483,6 +483,22 @@
           display: block;
         }
       }
+
+      /* Hover effect for Contact Me button */
+      .contact-btn:hover {
+        color: #ffffff !important;
+        background-color: #ff0000 !important;
+        border-color: #ff0000 !important;
+      }
+
+      /* Optional: Hover effects for other buttons */
+      .hero-section .btn-primary:hover {
+        background-color: #333333 !important;
+        border-color: #333333 !important;
+      }
+      .hero-section .btn-outline-secondary:hover {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+      }
     </style>
   </head>
 
@@ -782,7 +798,7 @@
 
       <div class="container" style="position: relative; z-index: 1">
         <div class="row align-items-center">
-          <!-- Profile Image - Animate from right -->
+          <!-- Profile Image Container -->
           <div
             class="col-lg-6 order-1 order-lg-2 d-flex justify-content-center mb-4 mb-lg-0 hero-animate"
             id="profile-animate"
@@ -791,10 +807,35 @@
               class="profile-pic-container position-relative"
               style="width: 240px; height: 240px"
             >
-              <!-- Profile Image with Subtle Shadow -->
+              <!-- Animated Police Siren Border -->
+              <div
+                class="profile-border-animation"
+                style="
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 50%;
+                  background: conic-gradient(
+                    #ff0000,
+                    #ff0000,
+                    #0000ff,
+                    #0000ff,
+                    #ff0000
+                  );
+                  background-size: 400% 400%;
+                  animation: rotateBorder 1.5s linear infinite paused;
+                  filter: blur(12px);
+                  opacity: 0;
+                  transition: all 0.4s ease;
+                  z-index: 1;
+                "
+              ></div>
+
+              <!-- Profile Image -->
               <img
                 src="images/profile-pic.jpg"
                 alt="Joel S Raphael"
+                id="profile-image"
                 class="profile-pic shadow-lg"
                 style="
                   width: 100%;
@@ -802,11 +843,80 @@
                   border-radius: 50%;
                   position: relative;
                   z-index: 2;
-                  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+                  cursor: pointer;
+                  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                  transform: scale(1);
+                  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
                 "
               />
             </div>
           </div>
+
+          <style>
+            /* Rotating Police Siren Border Animation */
+            @keyframes rotateBorder {
+              0% {
+                transform: rotate(0deg);
+                background-position: 0% 50%;
+                opacity: 0.8;
+              }
+              50% {
+                opacity: 1;
+              }
+              100% {
+                transform: rotate(360deg);
+                background-position: 100% 50%;
+                opacity: 0.8;
+              }
+            }
+
+            /* Police Siren Pulsing Effect */
+            @keyframes siren-pulse {
+              0%,
+              100% {
+                box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.7);
+              }
+              50% {
+                box-shadow: 0 0 25px 8px rgba(0, 0, 255, 0.7);
+              }
+            }
+
+            /* Active States */
+            .active-border {
+              opacity: 0.9 !important;
+              animation-play-state: running !important;
+            }
+
+            .active-image {
+              animation: siren-pulse 0.8s infinite !important;
+              transform: scale(0.9) !important;
+              box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.3) !important;
+            }
+          </style>
+
+          <script>
+            document
+              .getElementById("profile-image")
+              .addEventListener("click", function () {
+                const border = document.querySelector(
+                  ".profile-border-animation"
+                );
+                const image = this;
+
+                // Toggle animations
+                border.classList.toggle("active-border");
+                image.classList.toggle("active-image");
+
+                // Optional: Add police siren sound effect
+                // if (image.classList.contains('active-image')) {
+                //   const siren = new Audio('siren.mp3');
+                //   siren.loop = true;
+                //   siren.play();
+                // } else {
+                //   document.querySelectorAll('audio').forEach(a => a.pause());
+                // }
+              });
+          </script>
 
           <!-- Text Content - Animate from left -->
           <div
@@ -816,7 +926,7 @@
             <p
               class="mb-3 hero-text-item"
               style="
-                color: #ff0000;
+                color: #ffffff;
                 font-weight: 600;
                 letter-spacing: 3px;
                 font-size: clamp(0.8rem, 2vw, 1rem);
@@ -871,8 +981,8 @@
                 href="#portfolio"
                 class="btn btn-primary btn-lg px-4 py-2 hero-text-item"
                 style="
-                  background-color: #ff0000;
-                  border-color: #ff0000;
+                  background-color: #000000;
+                  border-color: #000000;
                   min-width: 150px;
                 "
               >
@@ -880,8 +990,14 @@
               </a>
               <a
                 href="#contact"
-                class="btn btn-outline-primary btn-lg px-4 py-2 hero-text-item"
-                style="color: #ff0000; border-color: #ff0000; min-width: 150px"
+                class="btn btn-outline-primary btn-lg px-4 py-2 hero-text-item contact-btn"
+                style="
+                  color: #ff0000;
+                  border-color: #ff0000;
+                  background-color: transparent;
+                  min-width: 150px;
+                  transition: all 0.3s ease;
+                "
               >
                 Contact Me
               </a>
