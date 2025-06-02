@@ -16,6 +16,9 @@
       name="keywords"
       content="web developer, full stack, UI/UX designer, illustrator, portfolio"
     />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png" />
@@ -1688,19 +1691,42 @@
             </div>
           </div>
         </div>
-<!-- Add this loading overlay DIV at the bottom of your page, just before </body> -->
+<!-- Add this at the bottom of your page (before </body>) -->
 <div id="pageLoader" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center;">
   <div class="spinner-border text-danger" style="width: 3rem; height: 3rem; border-width: 0.25em;"></div>
 </div>
 
-<!-- Your existing button code, modified -->
+<!-- Your button code -->
 <div class="text-center mt-5">
   <a href="projects.html" 
      class="btn btn-outline-danger btn-lg text-white border-white"
-     onclick="document.getElementById('pageLoader').style.display = 'flex'; setTimeout(() => { window.location.href = 'projects.html'; }, 100);">
+     id="projectsButton">
     View All Projects
   </a>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Hide loader when page loads (in case it persisted)
+    document.getElementById('pageLoader').style.display = 'none';
+    
+    // Button click handler
+    document.getElementById('projectsButton').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('pageLoader').style.display = 'flex';
+      
+      // Force a hard redirect after a minimal delay
+      setTimeout(function() {
+        window.location.href = 'projects.html';
+      }, 100);
+    });
+  });
+
+  // Ensure loader is hidden when page is shown (for back/forward navigation)
+  window.addEventListener('pageshow', function(event) {
+    document.getElementById('pageLoader').style.display = 'none';
+  });
+</script>
 
       <script>
         document.addEventListener("DOMContentLoaded", function () {
