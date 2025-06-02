@@ -1699,8 +1699,7 @@
 </div>
 
 <script>
-  // Remove spinner if it exists on page load
-  document.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener('pageshow', function () {
     const existingSpinner = document.querySelector('.spinner-overlay');
     if (existingSpinner) {
       existingSpinner.remove();
@@ -1709,8 +1708,7 @@
 
   function showSpinner(event, url) {
     event.preventDefault();
-    
-    // Prevent multiple spinners
+
     if (document.querySelector('.spinner-overlay')) return;
 
     const spinnerOverlay = document.createElement('div');
