@@ -778,397 +778,416 @@
       }
 
     </style>
+<!-- Modified Hero Section -->
+<section
+  id="home"
+  class="hero-section"
+  style="
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
+    padding: 2rem 0;
+    position: relative;
+    overflow: hidden;
+  "
+>
+  <!-- Animated Background Element -->
+  <div
+    class="animated-red-black-bg"
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        45deg,
+        #000000,
+        #ff0000,
+        #000000,
+        #ff0000,
+        #000000
+      );
+      background-size: 400% 400%;
+      animation: gradientFlow 8s ease infinite;
+      opacity: 0.2;
+      z-index: 0;
+    "
+  ></div>
 
-    <!-- Modified Hero Section -->
-    <section
-      id="home"
-      class="hero-section"
-      style="
-        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
-        padding: 2rem 0;
-        position: relative;
-        overflow: hidden;
-      "
-    >
-      <!-- Animated Background Element -->
+  <!-- Background GIF that appears on click -->
+  <div id="siren-gif" style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/background.gif');
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    filter: blur(2px);
+  "></div>
+
+  <div class="container" style="position: relative; z-index: 1">
+    <div class="row align-items-center">
+      <!-- Profile Image Container -->
       <div
-        class="animated-red-black-bg"
-        style="
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(
-            45deg,
-            #000000,
-            #ff0000,
-            #000000,
-            #ff0000,
-            #000000
-          );
-          background-size: 400% 400%;
-          animation: gradientFlow 8s ease infinite;
-          opacity: 0.2;
-          z-index: 0;
-        "
-      ></div>
-
-      <div class="container" style="position: relative; z-index: 1">
-        <div class="row align-items-center">
-          <!-- Profile Image Container -->
+        class="col-lg-6 order-1 order-lg-2 d-flex justify-content-center mb-4 mb-lg-0 hero-animate"
+        id="profile-animate"
+      >
+        <div
+          class="profile-pic-container position-relative"
+          style="width: 240px; height: 240px"
+        >
+          <!-- Animated Police Siren Border -->
           <div
-            class="col-lg-6 order-1 order-lg-2 d-flex justify-content-center mb-4 mb-lg-0 hero-animate"
-            id="profile-animate"
-          >
-            <div
-              class="profile-pic-container position-relative"
-              style="width: 240px; height: 240px"
-            >
-              <!-- Animated Police Siren Border -->
-              <div
-                class="profile-border-animation"
-                style="
-                  position: absolute;
-                  width: 100%;
-                  height: 100%;
-                  border-radius: 50%;
-                  background: conic-gradient(
-                    #ff0000,
-                    #ff0000,
-                    #da2121,
-                    #ff0000,
-                    #e01515
-                  );
-                  background-size: 400% 400%;
-                  animation: rotateBorder 1.5s linear infinite paused;
-                  filter: blur(12px);
-                  opacity: 0;
-                  transition: all 0.4s ease;
-                  z-index: 1;
-                "
-              ></div>
+            class="profile-border-animation"
+            style="
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+              background: conic-gradient(
+                #ff0000,
+                #ff0000,
+                #da2121,
+                #ff0000,
+                #e01515
+              );
+              background-size: 400% 400%;
+              animation: rotateBorder 1.5s linear infinite paused;
+              filter: blur(12px);
+              opacity: 0;
+              transition: all 0.4s ease;
+              z-index: 1;
+            "
+          ></div>
 
-              <!-- Profile Image -->
-              <img
-                src="images/profile-pic.jpg"
-                alt="Joel S Raphael"
-                id="profile-image"
-                class="profile-pic shadow-lg"
-                style="
-                  width: 100%;
-                  height: auto;
-                  border-radius: 50%;
-                  position: relative;
-                  z-index: 2;
-                  cursor: pointer;
-                  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                  transform: scale(1);
-                  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
-                "
-              />
-            </div>
-          </div>
-
-          <!-- Hidden Audio Element -->
-          <audio id="siren-audio" loop>
-            <source src="audio/WhatsApp Audio 2025-06-02 at 15.13.56_e9615360.mp3" type="audio/mpeg" />
-            Your browser does not support the audio element.
-          </audio>
-
-          <style>
-            /* Rotating Police Siren Border Animation */
-            @keyframes rotateBorder {
-              0% {
-                transform: rotate(0deg);
-                background-position: 0% 50%;
-                opacity: 0.8;
-              }
-              50% {
-                opacity: 1;
-              }
-              100% {
-                transform: rotate(360deg);
-                background-position: 100% 50%;
-                opacity: 0.8;
-              }
-            }
-
-            /* Police Siren Pulsing Effect */
-            @keyframes siren-pulse {
-              0%,
-              100% {
-                box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.7);
-              }
-              50% {
-                box-shadow: 0 0 25px 8px rgba(0, 0, 255, 0.7);
-              }
-            }
-
-            /* Active States */
-            .active-border {
-              opacity: 0.9 !important;
-              animation-play-state: running !important;
-            }
-
-            .active-image {
-              animation: siren-pulse 0.8s infinite !important;
-              transform: scale(0.9) !important;
-              box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.3) !important;
-            }
-          </style>
-
-          <script>
-            // Get elements
-            const profileImage = document.getElementById("profile-image");
-            const borderAnimation = document.querySelector(
-              ".profile-border-animation"
-            );
-            const sirenAudio = document.getElementById("siren-audio");
-
-            // Click event handler
-            profileImage.addEventListener("click", function () {
-              // Toggle animations
-              borderAnimation.classList.toggle("active-border");
-              profileImage.classList.toggle("active-image");
-
-              // Handle audio
-              if (profileImage.classList.contains("active-image")) {
-                // Start playing from beginning if already playing
-                sirenAudio.currentTime = 0;
-                sirenAudio
-                  .play()
-                  .catch((e) => console.log("Audio play failed:", e));
-              } else {
-                sirenAudio.pause();
-              }
-            });
-
-            // Pause audio when clicking anywhere else
-            document.addEventListener("click", function (e) {
-              if (!profileImage.contains(e.target)) {
-                borderAnimation.classList.remove("active-border");
-                profileImage.classList.remove("active-image");
-                sirenAudio.pause();
-              }
-            });
-          </script>
-
-          <!-- Text Content - Animate from left -->
-          <div
-            class="col-lg-6 order-2 order-lg-1 text-center text-lg-start hero-animate"
-            id="text-animate"
-          >
-            <p
-              class="mb-3 hero-text-item"
-              style="
-                color: #ffffff;
-                font-weight: 600;
-                letter-spacing: 3px;
-                font-size: clamp(0.8rem, 2vw, 1rem);
-              "
-            >
-              WEB DEVELOPER / DESIGNER / ILLUSTRATOR
-            </p>
-
-            <!-- Animated Name Text -->
-            <div class="name-container mb-4">
-              <h1
-                class="animated-name"
-                style="
-                  font-family: 'Dancing Script', cursive;
-                  font-style: italic;
-                  font-weight: 700;
-                  font-size: clamp(2rem, 6vw, 4rem);
-                "
-              >
-                <span
-                  class="name-part hero-text-item"
-                  data-text="JOEL"
-                  style="color: #ff0000"
-                  >JOEL</span
-                >
-                <span
-                  class="name-part hero-text-item"
-                  data-text="S"
-                  style="color: #ffffff; font-size: 0.8em"
-                  >S</span
-                >
-                <span
-                  class="name-part hero-text-item"
-                  data-text="RAPHAEL"
-                  style="color: #ffffff"
-                  >RAPHAEL</span
-                >
-              </h1>
-            </div>
-
-            <p
-              class="lead mb-4 hero-text-item"
-              style="color: #ffffff; font-size: clamp(1rem, 2vw, 1.25rem)"
-            >
-              I build digital experiences that are beautiful, functional, and
-              user-focused.
-            </p>
-            <div
-              class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start"
-            >
-              <a
-                href="#portfolio"
-                class="btn btn-primary btn-lg px-4 py-2 hero-text-item"
-                style="
-                  background-color: #000000;
-                  border-color: #000000;
-                  min-width: 150px;
-                "
-              >
-                View My Work
-              </a>
-              <a
-                href="#contact"
-                class="btn btn-outline-primary btn-lg px-4 py-2 hero-text-item contact-btn"
-                style="
-                  color: #ff0000;
-                  border-color: #ff0000;
-                  background-color: transparent;
-                  min-width: 150px;
-                  transition: all 0.3s ease;
-                "
-              >
-                Contact Me
-              </a>
-              <a
-                href="images/JOEL_RESUME.pdf"
-                download="Joel_S_Raphael_Resume.pdf"
-                class="btn btn-outline-secondary btn-lg px-4 py-2 hero-text-item"
-                style="color: #ffffff; border-color: #ffffff; min-width: 150px"
-              >
-                Download Resume
-              </a>
-            </div>
-          </div>
+          <!-- Profile Image -->
+          <img
+            src="images/profile-pic.jpg"
+            alt="Joel S Raphael"
+            id="profile-image"
+            class="profile-pic shadow-lg"
+            style="
+              width: 100%;
+              height: auto;
+              border-radius: 50%;
+              position: relative;
+              z-index: 2;
+              cursor: pointer;
+              transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+              transform: scale(1);
+              box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+            "
+          />
         </div>
       </div>
-    </section>
 
-    <!-- Animation Script -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Get elements
-        const heroSection = document.querySelector(".hero-section");
-        const profileElement = document.getElementById("profile-animate");
-        const textElement = document.getElementById("text-animate");
-        const textItems = document.querySelectorAll(".hero-text-item");
+      <!-- Hidden Audio Element -->
+      <audio id="siren-audio" loop>
+        <source src="audio/WhatsApp Audio 2025-06-02 at 15.13.56_e9615360.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
 
-        // Create intersection observer
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                // Animate profile from right
-                profileElement.classList.add("animate-right");
+      <!-- Text Content - Animate from left -->
+      <div
+        class="col-lg-6 order-2 order-lg-1 text-center text-lg-start hero-animate"
+        id="text-animate"
+      >
+        <p
+          class="mb-3 hero-text-item"
+          style="
+            color: #ffffff;
+            font-weight: 600;
+            letter-spacing: 3px;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+          "
+        >
+          WEB DEVELOPER / DESIGNER / ILLUSTRATOR
+        </p>
 
-                // Animate text container from left
-                textElement.classList.add("animate-left");
+        <!-- Animated Name Text -->
+        <div class="name-container mb-4">
+          <h1
+            class="animated-name"
+            style="
+              font-family: 'Dancing Script', cursive;
+              font-style: italic;
+              font-weight: 700;
+              font-size: clamp(2rem, 6vw, 4rem);
+            "
+          >
+            <span
+              class="name-part hero-text-item"
+              data-text="JOEL"
+              style="color: #ff0000"
+              >JOEL</span
+            >
+            <span
+              class="name-part hero-text-item"
+              data-text="S"
+              style="color: #ffffff; font-size: 0.8em"
+              >S</span
+            >
+            <span
+              class="name-part hero-text-item"
+              data-text="RAPHAEL"
+              style="color: #ffffff"
+              >RAPHAEL</span
+            >
+          </h1>
+        </div>
 
-                // Animate text items with alternating directions
-                textItems.forEach((item, index) => {
-                  setTimeout(() => {
-                    // Alternate between left and right animations
-                    if (index % 2 === 0) {
-                      item.style.animation =
-                        "slideInFromLeft 0.8s ease-out forwards";
-                    } else {
-                      item.style.animation =
-                        "slideInFromRight 0.8s ease-out forwards";
-                    }
-                    item.style.opacity = "1";
-                  }, 200 + index * 150); // Staggered delay
-                });
+        <p
+          class="lead mb-4 hero-text-item"
+          style="color: #ffffff; font-size: clamp(1rem, 2vw, 1.25rem)"
+        >
+          I build digital experiences that are beautiful, functional, and
+          user-focused.
+        </p>
+        <div
+          class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start"
+        >
+          <a
+            href="#portfolio"
+            class="btn btn-primary btn-lg px-4 py-2 hero-text-item"
+            style="
+              background-color: #000000;
+              border-color: #000000;
+              min-width: 150px;
+            "
+          >
+            View My Work
+          </a>
+          <a
+            href="#contact"
+            class="btn btn-outline-primary btn-lg px-4 py-2 hero-text-item contact-btn"
+            style="
+              color: #ff0000;
+              border-color: #ff0000;
+              background-color: transparent;
+              min-width: 150px;
+              transition: all 0.3s ease;
+            "
+          >
+            Contact Me
+          </a>
+          <a
+            href="images/JOEL_RESUME.pdf"
+            download="Joel_S_Raphael_Resume.pdf"
+            class="btn btn-outline-secondary btn-lg px-4 py-2 hero-text-item"
+            style="color: #ffffff; border-color: #ffffff; min-width: 150px"
+          >
+            Download Resume
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                observer.unobserve(entry.target);
-              }
+<style>
+  /* Animation styles */
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Rotating Police Siren Border Animation */
+  @keyframes rotateBorder {
+    0% {
+      transform: rotate(0deg);
+      background-position: 0% 50%;
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(360deg);
+      background-position: 100% 50%;
+      opacity: 0.8;
+    }
+  }
+
+  /* Police Siren Pulsing Effect */
+  @keyframes siren-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 25px 8px rgba(0, 0, 255, 0.7);
+    }
+  }
+
+  /* Initial state */
+  .hero-animate {
+    opacity: 0;
+  }
+
+  /* Animation classes */
+  .animate-left {
+    animation: slideInFromLeft 0.8s ease-out forwards;
+  }
+
+  .animate-right {
+    animation: slideInFromRight 0.8s ease-out forwards;
+  }
+
+  .animate-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  /* Profile image styling */
+  .profile-pic-container {
+    overflow: hidden;
+  }
+
+  /* Active States */
+  .active-border {
+    opacity: 0.9 !important;
+    animation-play-state: running !important;
+  }
+
+  .active-image {
+    animation: siren-pulse 0.8s infinite !important;
+    transform: scale(0.9) !important;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.3) !important;
+  }
+
+  /* Dark overlay for GIF */
+  #siren-gif::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Get elements
+    const heroSection = document.querySelector(".hero-section");
+    const profileElement = document.getElementById("profile-animate");
+    const textElement = document.getElementById("text-animate");
+    const textItems = document.querySelectorAll(".hero-text-item");
+    const profileImage = document.getElementById("profile-image");
+    const borderAnimation = document.querySelector(".profile-border-animation");
+    const sirenAudio = document.getElementById("siren-audio");
+    const sirenGif = document.getElementById("siren-gif");
+
+    // Create intersection observer for initial animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Animate profile from right
+            profileElement.classList.add("animate-right");
+
+            // Animate text container from left
+            textElement.classList.add("animate-left");
+
+            // Animate text items with alternating directions
+            textItems.forEach((item, index) => {
+              setTimeout(() => {
+                // Alternate between left and right animations
+                if (index % 2 === 0) {
+                  item.style.animation =
+                    "slideInFromLeft 0.8s ease-out forwards";
+                } else {
+                  item.style.animation =
+                    "slideInFromRight 0.8s ease-out forwards";
+                }
+                item.style.opacity = "1";
+              }, 200 + index * 150); // Staggered delay
             });
-          },
-          { threshold: 0.1 }
-        );
 
-        // Observe the hero section
-        observer.observe(heroSection);
-      });
-    </script>
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-    <!-- Add this style in your head section -->
-    <style>
-      /* Animation styles */
-      @keyframes slideInFromLeft {
-        0% {
-          transform: translateX(-100px);
-          opacity: 0;
-        }
-        100% {
-          transform: translateX(0);
-          opacity: 1;
-        }
+    // Observe the hero section
+    observer.observe(heroSection);
+
+    // Click event handler for profile image
+    profileImage.addEventListener("click", function() {
+      // Toggle animations
+      borderAnimation.classList.toggle("active-border");
+      profileImage.classList.toggle("active-image");
+      
+      // Toggle GIF visibility
+      if (profileImage.classList.contains("active-image")) {
+        sirenGif.style.opacity = "0.3";
+        // Start playing from beginning if already playing
+        sirenAudio.currentTime = 0;
+        sirenAudio.play().catch(e => console.log("Audio play failed:", e));
+      } else {
+        sirenGif.style.opacity = "0";
+        sirenAudio.pause();
       }
+    });
 
-      @keyframes slideInFromRight {
-        0% {
-          transform: translateX(100px);
-          opacity: 0;
-        }
-        100% {
-          transform: translateX(0);
-          opacity: 1;
-        }
+    // Pause audio and hide GIF when clicking anywhere else
+    document.addEventListener("click", function(e) {
+      if (!profileImage.contains(e.target)) {
+        borderAnimation.classList.remove("active-border");
+        profileImage.classList.remove("active-image");
+        sirenGif.style.opacity = "0";
+        sirenAudio.pause();
       }
-
-      @keyframes fadeInUp {
-        0% {
-          transform: translateY(30px);
-          opacity: 0;
-        }
-        100% {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-
-      @keyframes gradientFlow {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      /* Initial state */
-      .hero-animate {
-        opacity: 0;
-      }
-
-      /* Animation classes */
-      .animate-left {
-        animation: slideInFromLeft 0.8s ease-out forwards;
-      }
-
-      .animate-right {
-        animation: slideInFromRight 0.8s ease-out forwards;
-      }
-
-      .animate-up {
-        animation: fadeInUp 0.8s ease-out forwards;
-      }
-
-      /* Profile image styling */
-      .profile-pic-container {
-        overflow: hidden;
-      }
-    </style>
+    });
+  });
+</script>
 
     <!-- Modified About Section -->
     <section
